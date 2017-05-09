@@ -2,7 +2,7 @@ defmodule OtpAsyncCall do
   use GenServer
 
   # API
-  
+
   def start, do: GenServer.start_link(__MODULE__, nil, name: __MODULE__)
 
   def request, do: GenServer.call(__MODULE__, :request)
@@ -36,4 +36,5 @@ defmodule OtpAsyncCall do
 
     {:noreply, state}
   end
+  def handle_info(_, state), do: {:noreply, state}
 end
